@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Line Plots</title>
+    <meta charset="utf-8"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.1"></script>
+
+    <link rel="stylesheet" href="style/grouped-data.css"/>
+</head>
+<body>
+<div id="content-container">
+    <h1>Line Plots with Grouped Data</h1>
+    <div id="vis-container"></div>
+    <div id="control-container">
+        <div class="toggle-container">
+            <label class="toggle-label" for="mainAToggle">
+                Main Effect of X
+            </label>
+            <label class="toggle-switch">
+                <input type="checkbox" id="mainAToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <label class="toggle-label" for="mainGToggle">
+                Main Effect of Group
+            </label>
+            <label class="toggle-switch">
+                <input type="checkbox" id="mainGToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <label class="toggle-label" for="interactionToggle">
+                Interaction (X & Group)
+            </label>
+            <label class="toggle-switch">
+                <input type="checkbox" id="interactionToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="toggle-container">
+            <div class="slidecontainer">
+                <label class="toggle-label" for="noiseSlider">
+                    Noise
+                </label>
+                <input type="range" min="0" max="250" value="0" class="noise-slider" id="noiseSlider">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script/js/grouped-data.js"></script>
+</body>
+</html>
