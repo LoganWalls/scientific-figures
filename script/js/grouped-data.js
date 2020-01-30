@@ -79,6 +79,9 @@ function newDataFromToggles(coefs, nPoints) {
 window.onload = function () {
     var nPoints = 10;
     var coefs = generateCoefs();
+    var sampleData = generateData(coefs, nPoints, 0);
+    var minY = sampleData.reduce(function(prev, d){return (prev <= d.y? prev: d.y)}, 0);
+    var maxY = sampleData.reduce(function(prev, d){return (prev >= d.y? prev: d.y)}, 0);
     var spec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
         autosize: {
@@ -92,6 +95,7 @@ window.onload = function () {
         mark: {
             type: 'line',
             opacity: 0.7,
+            clip: true,
             point: {
                 filled: false,
                 fill: 'white'
@@ -105,7 +109,8 @@ window.onload = function () {
             },
             y: {
                 field: 'y',
-                type: 'quantitative'
+                type: 'quantitative',
+                scale: {domain: [minY, maxY]}
             },
             color: {
                 field: 'group',
